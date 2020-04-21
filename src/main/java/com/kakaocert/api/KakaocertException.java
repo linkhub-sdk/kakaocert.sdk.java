@@ -30,7 +30,7 @@ public class KakaocertException extends Exception{
 	}
 
 	/**
-	 * Return Popbill's result Error code. (ex. -11010009) In case of -99999999,
+	 * Return Kakaocert's result Error code. (ex. -31010009) In case of -99999999,
 	 * check the getMessage() for detail.
 	 * 
 	 * @return error code.

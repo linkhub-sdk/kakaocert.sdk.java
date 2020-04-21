@@ -2,6 +2,12 @@ package com.kakaocert.api.verifyauth;
 
 import java.io.Serializable;
 
+/**
+ * class for VerifyAuth Information
+ * 
+ * @author John
+ * @version 1.0.0
+ */
 public class RequestVerifyAuth implements Serializable{
 
 	private static final long serialVersionUID = -7183094820383012243L;
@@ -22,6 +28,7 @@ public class RequestVerifyAuth implements Serializable{
 	public String getCallCenterNum() {
 		return CallCenterNum;
 	}
+	
 	public void setCallCenterNum(String callCenterNum) {
 		this.CallCenterNum = callCenterNum;
 	}

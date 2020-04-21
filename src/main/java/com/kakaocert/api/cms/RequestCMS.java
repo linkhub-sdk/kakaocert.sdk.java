@@ -2,6 +2,12 @@ package com.kakaocert.api.cms;
 
 import java.io.Serializable;
 
+/**
+ * class for CMS Information
+ * 
+ * @author John
+ * @version 1.0.0
+ */
 public class RequestCMS implements Serializable{
 
 	private static final long serialVersionUID = -411164392902817963L;
