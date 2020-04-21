@@ -20,7 +20,7 @@ public class TEST_ESign {
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
 		service.setAuthURL("https://dev-auth.linkhub.kr");
-		service.setServiceURL("http://192.168.0.103:8080");
+		service.setServiceURL("https://dev-kc-api.linkhub.kr");
 		
 		kakaocertService = service;
 		

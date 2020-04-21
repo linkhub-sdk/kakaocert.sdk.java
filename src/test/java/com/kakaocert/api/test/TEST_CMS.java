@@ -19,7 +19,7 @@ public class TEST_CMS {
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
 		service.setAuthURL("https://dev-auth.linkhub.kr");
-		service.setServiceURL("http://192.168.0.103:8080");
+		service.setServiceURL("https://dev-kc-api.linkhub.kr");
 		
 		kakaocertService = service;
 		
@@ -59,7 +59,7 @@ public class TEST_CMS {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042111145200001");
+			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042115443700001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());
