@@ -55,7 +55,7 @@ public class TEST_VerifyAuth {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000050", "020042111145200001");
+			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000050", "020042111054000001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

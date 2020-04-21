@@ -578,6 +578,9 @@ public class KakaocertServiceImp implements KakaocertService{
 	@Override
 	public String requestESign(String ClientCode, RequestESign esignRequest) throws KakaocertException {
 		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == esignRequest) throw new KakaocertException(-99999999, "간편서명 요청정보가 입력되지 않았습니다.");
+		
 		String PostData = toJsonString(esignRequest);
 		
 		ReceiptResponse response = httppost("/SignToken/Request", ClientCode, PostData, null, ReceiptResponse.class);
@@ -589,12 +592,18 @@ public class KakaocertServiceImp implements KakaocertService{
 	@Override
 	public ResultESign getESignResult(String ClientCode, String receiptID) throws KakaocertException {
 		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
+		
 		return httpget("/SignToken/" + receiptID, ClientCode, null,
 				ResultESign.class);
 	}
 	
 	@Override
 	public String requestVerifyAuth(String ClientCode, RequestVerifyAuth verifyAuthRequest) throws KakaocertException {
+		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == verifyAuthRequest) throw new KakaocertException(-99999999, "본인인증 요청정보가 입력되지 않았습니다.");
 		
 		String PostData = toJsonString(verifyAuthRequest);
 		
@@ -605,6 +614,9 @@ public class KakaocertServiceImp implements KakaocertService{
 
 	@Override
 	public ResultVerifyAuth getVerifyAuthResult(String ClientCode, String receiptID) throws KakaocertException {
+
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
 		
 		return httpget("/SignIdentity/" + receiptID, ClientCode, null,
 				ResultVerifyAuth.class);
@@ -612,6 +624,9 @@ public class KakaocertServiceImp implements KakaocertService{
 
 	@Override
 	public String requestCMS(String ClientCode, RequestCMS cmsRequest) throws KakaocertException {
+		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == cmsRequest) throw new KakaocertException(-99999999, "자동이체 출금동의 요청정보가 입력되지 않았습니다.");
 		
 		String PostData = toJsonString(cmsRequest);
 		
@@ -622,6 +637,9 @@ public class KakaocertServiceImp implements KakaocertService{
 
 	@Override
 	public ResultCMS getCMSResult(String ClientCode, String receiptID) throws KakaocertException {
+		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
 		
 		return httpget("/SignDirectDebit/" + receiptID, ClientCode, null,
 				ResultCMS.class);
