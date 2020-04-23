@@ -59,7 +59,7 @@ public class TEST_CMS {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042216202100001");
+			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042309580800001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

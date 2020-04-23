@@ -11,16 +11,16 @@ import java.io.Serializable;
 public class RequestESign implements Serializable{
 	private static final long serialVersionUID = -612033468073051353L;
 	
-	private String callCenterNum;
-	private int expires_in;
-	private String payLoad;
-	private String receiverBirthDay;
-	private String receiverHP;
-	private String receiverName;
-	private String subClientID;
-	private String tMSMessage;
-	private String tMSTitle;
-	private String token;
+	private String CallCenterNum;
+	private int Expires_in;
+	private String PayLoad;
+	private String ReceiverBirthDay;
+	private String ReceiverHP;
+	private String ReceiverName;
+	private String SubClientID;
+	private String TMSMessage;
+	private String TMSTitle;
+	private String Token;
 	private boolean isAllowSimpleRegistYN;
 	private boolean isVerifyNameYN;
 	
@@ -30,7 +30,7 @@ public class RequestESign implements Serializable{
 	 * @return CallCenterNum
 	 */
 	public String getCallCenterNum() {
-		return callCenterNum;
+		return CallCenterNum;
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class RequestESign implements Serializable{
 	 * @param callCenterNum
 	 */
 	public void setCallCenterNum(String callCenterNum) {
-		this.callCenterNum = callCenterNum;
+		this.CallCenterNum = callCenterNum;
 	}
 	
 	/**
@@ -48,7 +48,7 @@ public class RequestESign implements Serializable{
 	 * @return Expires_in
 	 */
 	public int getExpires_in() {
-		return expires_in;
+		return Expires_in;
 	}
 	
 	/**
@@ -56,7 +56,7 @@ public class RequestESign implements Serializable{
 	 * @param expires_in
 	 */
 	public void setExpires_in(int expires_in) {
-		this.expires_in = expires_in;
+		this.Expires_in = expires_in;
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class RequestESign implements Serializable{
 	 * @return PayLoad
 	 */
 	public String getPayLoad() {
-		return payLoad;
+		return PayLoad;
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class RequestESign implements Serializable{
 	 * @param payLoad
 	 */
 	public void setPayLoad(String payLoad) {
-		this.payLoad = payLoad;
+		this.PayLoad = payLoad;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class RequestESign implements Serializable{
 	 * @return ReceiverBirthDay
 	 */
 	public String getReceiverBirthDay() {
-		return receiverBirthDay;
+		return ReceiverBirthDay;
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class RequestESign implements Serializable{
 	 * @param receiverBirthDay
 	 */
 	public void setReceiverBirthDay(String receiverBirthDay) {
-		this.receiverBirthDay = receiverBirthDay;
+		this.ReceiverBirthDay = receiverBirthDay;
 	}
 	
 	/**
@@ -101,7 +101,7 @@ public class RequestESign implements Serializable{
 	 * @return ReceiverHP
 	 */
 	public String getReceiverHP() {
-		return receiverHP;
+		return ReceiverHP;
 	}
 	
 	/**
@@ -110,7 +110,7 @@ public class RequestESign implements Serializable{
 	 * @param receiverHP
 	 */
 	public void setReceiverHP(String receiverHP) {
-		this.receiverHP = receiverHP;
+		this.ReceiverHP = receiverHP;
 	}
 	
 	/**
@@ -119,7 +119,7 @@ public class RequestESign implements Serializable{
 	 * @return ReceiverName
 	 */
 	public String getReceiverName() {
-		return receiverName;
+		return ReceiverName;
 	}
 	
 	/**
@@ -128,7 +128,7 @@ public class RequestESign implements Serializable{
 	 * @param receiverName
 	 */
 	public void setReceiverName(String receiverName) {
-		this.receiverName = receiverName;
+		this.ReceiverName = receiverName;
 	}
 	
 	/**
@@ -137,7 +137,7 @@ public class RequestESign implements Serializable{
 	 * @return SubClientID
 	 */
 	public String getSubClientID() {
-		return subClientID;
+		return SubClientID;
 	}
 	
 	/**
@@ -146,7 +146,7 @@ public class RequestESign implements Serializable{
 	 * @param subClientID
 	 */
 	public void setSubClientID(String subClientID) {
-		this.subClientID = subClientID;
+		this.SubClientID = subClientID;
 	}
 	
 	/**
@@ -155,7 +155,7 @@ public class RequestESign implements Serializable{
 	 * @return TMSMessage
 	 */
 	public String getTMSMessage() {
-		return tMSMessage;
+		return TMSMessage;
 	}
 	
 	/**
@@ -163,8 +163,8 @@ public class RequestESign implements Serializable{
 	 * 
 	 * @param tMSMessage
 	 */
-	public void setTMSMessage(String TMSMessage) {
-		tMSMessage = TMSMessage;
+	public void setTMSMessage(String tMSMessage) {
+		TMSMessage = tMSMessage;
 	}
 	
 	/**
@@ -173,7 +173,7 @@ public class RequestESign implements Serializable{
 	 * @return TMSTitle
 	 */
 	public String getTMSTitle() {
-		return tMSTitle;
+		return TMSTitle;
 	}
 	
 	/**
@@ -181,8 +181,8 @@ public class RequestESign implements Serializable{
 	 * 
 	 * @param tMSTitle
 	 */
-	public void setTMSTitle(String TMSTitle) {
-		tMSTitle = TMSTitle;
+	public void setTMSTitle(String tMSTitle) {
+		TMSTitle = tMSTitle;
 	}
 	
 	/**
@@ -191,7 +191,7 @@ public class RequestESign implements Serializable{
 	 * @return Token
 	 */
 	public String getToken() {
-		return token;
+		return Token;
 	}
 	
 	/**
@@ -199,8 +199,8 @@ public class RequestESign implements Serializable{
 	 * 
 	 * @param token
 	 */
-	public void setToken(String Token) {
-		token = Token;
+	public void setToken(String token) {
+		Token = token;
 	}
 	
 	/**
