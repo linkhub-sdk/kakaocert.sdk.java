@@ -29,8 +29,8 @@ public class TEST_CMS {
 	public void request_TEST() throws KakaocertException{
 		try {
 			RequestCMS request = new RequestCMS();
-			request.setAllowSimpleRegistYN(true);
-			request.setVerifyNameYN(true);
+			request.setAllowSimpleRegistYN(false);
+			request.setVerifyNameYN(false);
 			request.setCallCenterNum("1600-9999");
 			request.setExpires_in(60);
 			request.setPayLoad("payload");
@@ -59,7 +59,7 @@ public class TEST_CMS {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042115443700001");
+			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042216202100001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

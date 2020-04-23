@@ -12,22 +12,22 @@ public class RequestCMS implements Serializable{
 
 	private static final long serialVersionUID = -411164392902817963L;
 
-	private String CallCenterNum;
-	private int Expires_in;
-	private String PayLoad;
-	private String ReceiverBirthDay;
-	private String ReceiverHP;
-	private String ReceiverName;
-	private String SubClientID;
-	private String TMSMessage;
-	private String TMSTitle;
+	private String callCenterNum;
+	private int expires_in;
+	private String payLoad;
+	private String receiverBirthDay;
+	private String receiverHP;
+	private String receiverName;
+	private String subClientID;
+	private String tMSMessage;
+	private String tMSTitle;
 	private boolean isAllowSimpleRegistYN;
 	private boolean isVerifyNameYN;
 	
-	private String BankAccountName;
-	private String BankAccountNum;
-	private String BankCode;
-	private String ClientUserID;
+	private String bankAccountName;
+	private String bankAccountNum;
+	private String bankCode;
+	private String clientUserID;
 	
 	/**
 	 * 고객센터 전화번호 확인
@@ -36,7 +36,7 @@ public class RequestCMS implements Serializable{
 	 * 		고객센터 번호
 	 */
 	public String getCallCenterNum() {
-		return CallCenterNum;
+		return callCenterNum;
 	}
 	
 	/**
@@ -45,8 +45,8 @@ public class RequestCMS implements Serializable{
 	 * @param callCenterNum
 	 * 		고객센터 전화번호
 	 */
-	public void setCallCenterNum(String callCenterNum) {
-		this.CallCenterNum = callCenterNum;
+	public void setCallCenterNum(String CallCenterNum) {
+		this.callCenterNum = CallCenterNum;
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class RequestCMS implements Serializable{
 	 * @return Expires_in
 	 */
 	public int getExpires_in() {
-		return Expires_in;
+		return expires_in;
 	}
 	
 	/**
@@ -65,7 +65,7 @@ public class RequestCMS implements Serializable{
 	 * 		만료시간
 	 */
 	public void setExpires_in(int expires_in) {
-		this.Expires_in = expires_in;
+		this.expires_in = expires_in;
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class RequestCMS implements Serializable{
 	 * @return Payload
 	 */
 	public String getPayLoad() {
-		return PayLoad;
+		return payLoad;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class RequestCMS implements Serializable{
 	 * @param payLoad
 	 */
 	public void setPayLoad(String payLoad) {
-		this.PayLoad = payLoad;
+		this.payLoad = payLoad;
 	}
 	
 	/**
@@ -92,7 +92,7 @@ public class RequestCMS implements Serializable{
 	 * @return ReceiverBirthDay
 	 */
 	public String getReceiverBirthDay() {
-		return ReceiverBirthDay;
+		return receiverBirthDay;
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class RequestCMS implements Serializable{
 	 * 		생년월일
 	 */
 	public void setReceiverBirthDay(String receiverBirthDay) {
-		this.ReceiverBirthDay = receiverBirthDay;
+		this.receiverBirthDay = receiverBirthDay;
 	}
 	
 	/**
@@ -111,7 +111,7 @@ public class RequestCMS implements Serializable{
 	 * @return ReceiverHP
 	 */
 	public String getReceiverHP() {
-		return ReceiverHP;
+		return receiverHP;
 	}
 	
 	/**
@@ -120,7 +120,7 @@ public class RequestCMS implements Serializable{
 	 * @param receiverHP
 	 */
 	public void setReceiverHP(String receiverHP) {
-		this.ReceiverHP = receiverHP;
+		this.receiverHP = receiverHP;
 	}
 	
 	/**
@@ -129,7 +129,7 @@ public class RequestCMS implements Serializable{
 	 * @return ReceiverName
 	 */
 	public String getReceiverName() {
-		return ReceiverName;
+		return receiverName;
 	}
 	
 	/**
@@ -138,7 +138,7 @@ public class RequestCMS implements Serializable{
 	 * @param receiverName
 	 */
 	public void setReceiverName(String receiverName) {
-		this.ReceiverName = receiverName;
+		this.receiverName = receiverName;
 	}
 	
 	/**
@@ -147,7 +147,7 @@ public class RequestCMS implements Serializable{
 	 * @return SubClientID
 	 */
 	public String getSubClientID() {
-		return SubClientID;
+		return subClientID;
 	}
 	
 	/**
@@ -157,7 +157,7 @@ public class RequestCMS implements Serializable{
 	 * 		별칭코드
 	 */
 	public void setSubClientID(String subClientID) {
-		this.SubClientID = subClientID;
+		this.subClientID = subClientID;
 	}
 	
 	/**
@@ -166,7 +166,7 @@ public class RequestCMS implements Serializable{
 	 * @return TMSMessage
 	 */
 	public String getTMSMessage() {
-		return TMSMessage;
+		return tMSMessage;
 	}
 	
 	/**
@@ -175,8 +175,8 @@ public class RequestCMS implements Serializable{
 	 * @param tMSMessage
 	 * 		알림톡 부가메시지
 	 */
-	public void setTMSMessage(String tMSMessage) {
-		TMSMessage = tMSMessage;
+	public void setTMSMessage(String TMSMessage) {
+		tMSMessage = TMSMessage;
 	}
 	
 	/**
@@ -185,7 +185,7 @@ public class RequestCMS implements Serializable{
 	 * @return TMSTitle
 	 */
 	public String getTMSTitle() {
-		return TMSTitle;
+		return tMSTitle;
 	}
 	
 	/**
@@ -194,8 +194,8 @@ public class RequestCMS implements Serializable{
 	 * @param tMSTitle
 	 * 		인증요청 메시지제목
 	 */
-	public void setTMSTitle(String tMSTitle) {
-		TMSTitle = tMSTitle;
+	public void setTMSTitle(String TMSTitle) {
+		tMSTitle = TMSTitle;
 	}
 	
 	/**
@@ -240,7 +240,7 @@ public class RequestCMS implements Serializable{
 	 * @return BankAccountName
 	 */
 	public String getBankAccountName() {
-		return BankAccountName;
+		return bankAccountName;
 	}
 	
 	/**
@@ -248,8 +248,8 @@ public class RequestCMS implements Serializable{
 	 * 
 	 * @param bankAccountName
 	 */
-	public void setBankAccountName(String bankAccountName) {
-		BankAccountName = bankAccountName;
+	public void setBankAccountName(String BankAccountName) {
+		bankAccountName = BankAccountName;
 	}
 	
 	/**
@@ -258,7 +258,7 @@ public class RequestCMS implements Serializable{
 	 * @return BankAccountNum
 	 */
 	public String getBankAccountNum() {
-		return BankAccountNum;
+		return bankAccountNum;
 	}
 	
 	/**
@@ -266,8 +266,8 @@ public class RequestCMS implements Serializable{
 	 * 
 	 * @param bankAccountNum
 	 */
-	public void setBankAccountNum(String bankAccountNum) {
-		BankAccountNum = bankAccountNum;
+	public void setBankAccountNum(String BankAccountNum) {
+		bankAccountNum = BankAccountNum;
 	}
 	
 	/**
@@ -276,7 +276,7 @@ public class RequestCMS implements Serializable{
 	 * @return BankCode
 	 */
 	public String getBankCode() {
-		return BankCode;
+		return bankCode;
 	}
 	
 	/**
@@ -284,8 +284,8 @@ public class RequestCMS implements Serializable{
 	 * 
 	 * @param bankCode
 	 */
-	public void setBankCode(String bankCode) {
-		BankCode = bankCode;
+	public void setBankCode(String BankCode) {
+		bankCode = BankCode;
 	}
 	
 	/**
@@ -294,7 +294,7 @@ public class RequestCMS implements Serializable{
 	 * @return ClientUserID
 	 */
 	public String getClientUserID() {
-		return ClientUserID;
+		return clientUserID;
 	}
 	
 	/**
@@ -302,7 +302,7 @@ public class RequestCMS implements Serializable{
 	 *  
 	 * @param clientUserID
 	 */
-	public void setClientUserID(String clientUserID) {
-		ClientUserID = clientUserID;
+	public void setClientUserID(String ClientUserID) {
+		clientUserID = ClientUserID;
 	}
 }

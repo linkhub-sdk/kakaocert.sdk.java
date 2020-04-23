@@ -12,16 +12,16 @@ public class RequestVerifyAuth implements Serializable{
 
 	private static final long serialVersionUID = -7183094820383012243L;
 
-	private String CallCenterNum;
-	private int Expires_in;
-	private String PayLoad;
-	private String ReceiverBirthDay;
-	private String ReceiverHP;
-	private String ReceiverName;
-	private String SubClientID;
-	private String TMSMessage;
-	private String TMSTitle;
-	private String Token;
+	private String callCenterNum;
+	private int expires_in;
+	private String payLoad;
+	private String receiverBirthDay;
+	private String receiverHP;
+	private String receiverName;
+	private String subClientID;
+	private String tMSMessage;
+	private String tMSTitle;
+	private String token;
 	private boolean isAllowSimpleRegistYN;
 	private boolean isVerifyNameYN;
 	
@@ -31,7 +31,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return CallCenterNum
 	 */
 	public String getCallCenterNum() {
-		return CallCenterNum;
+		return callCenterNum;
 	}
 	
 	/**
@@ -40,7 +40,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param callCenterNum
 	 */
 	public void setCallCenterNum(String callCenterNum) {
-		this.CallCenterNum = callCenterNum;
+		this.callCenterNum = callCenterNum;
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return Expires_in
 	 */
 	public int getExpires_in() {
-		return Expires_in;
+		return expires_in;
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param expires_in
 	 */
 	public void setExpires_in(int expires_in) {
-		this.Expires_in = expires_in;
+		this.expires_in = expires_in;
 	}
 	
 	/**
@@ -67,7 +67,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return PayLoad
 	 */
 	public String getPayLoad() {
-		return PayLoad;
+		return payLoad;
 	}
 	
 	/**
@@ -76,7 +76,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param payLoad
 	 */
 	public void setPayLoad(String payLoad) {
-		this.PayLoad = payLoad;
+		this.payLoad = payLoad;
 	}
 	
 	/**
@@ -85,7 +85,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return ReceiverBirthDay
 	 */
 	public String getReceiverBirthDay() {
-		return ReceiverBirthDay;
+		return receiverBirthDay;
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param receiverBirthDay
 	 */
 	public void setReceiverBirthDay(String receiverBirthDay) {
-		this.ReceiverBirthDay = receiverBirthDay;
+		this.receiverBirthDay = receiverBirthDay;
 	}
 	
 	/**
@@ -103,7 +103,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return receiverHP
 	 */
 	public String getReceiverHP() {
-		return ReceiverHP;
+		return receiverHP;
 	}
 	
 	/**
@@ -112,7 +112,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param receiverHP
 	 */
 	public void setReceiverHP(String receiverHP) {
-		this.ReceiverHP = receiverHP;
+		this.receiverHP = receiverHP;
 	}
 	
 	/**
@@ -121,7 +121,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return ReceiverName
 	 */
 	public String getReceiverName() {
-		return ReceiverName;
+		return receiverName;
 	}
 	
 	/**
@@ -130,7 +130,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param receiverName
 	 */
 	public void setReceiverName(String receiverName) {
-		this.ReceiverName = receiverName;
+		this.receiverName = receiverName;
 	}
 	
 	/**
@@ -139,7 +139,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return SubClientID
 	 */
 	public String getSubClientID() {
-		return SubClientID;
+		return subClientID;
 	}
 	
 	/**
@@ -148,7 +148,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @param subClientID
 	 */
 	public void setSubClientID(String subClientID) {
-		this.SubClientID = subClientID;
+		this.subClientID = subClientID;
 	}
 	
 	/**
@@ -157,7 +157,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return TMSMessage
 	 */
 	public String getTMSMessage() {
-		return TMSMessage;
+		return tMSMessage;
 	}
 	
 	/**
@@ -165,8 +165,8 @@ public class RequestVerifyAuth implements Serializable{
 	 * 
 	 * @param tMSMessage
 	 */
-	public void setTMSMessage(String tMSMessage) {
-		TMSMessage = tMSMessage;
+	public void setTMSMessage(String TMSMessage) {
+		tMSMessage = TMSMessage;
 	}
 	
 	/**
@@ -175,7 +175,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return TMSTitle
 	 */
 	public String getTMSTitle() {
-		return TMSTitle;
+		return tMSTitle;
 	}
 	
 	/**
@@ -183,8 +183,8 @@ public class RequestVerifyAuth implements Serializable{
 	 * 
 	 * @param tMSTitle
 	 */
-	public void setTMSTitle(String tMSTitle) {
-		TMSTitle = tMSTitle;
+	public void setTMSTitle(String TMSTitle) {
+		tMSTitle = TMSTitle;
 	}
 	
 	/**
@@ -192,7 +192,7 @@ public class RequestVerifyAuth implements Serializable{
 	 * @return
 	 */
 	public String getToken() {
-		return Token;
+		return token;
 	}
 	
 	/**
@@ -200,8 +200,8 @@ public class RequestVerifyAuth implements Serializable{
 	 *  
 	 * @param token
 	 */
-	public void setToken(String token) {
-		Token = token;
+	public void setToken(String Token) {
+		token = Token;
 	}
 	
 	/**
