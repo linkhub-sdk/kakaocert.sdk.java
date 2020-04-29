@@ -10,8 +10,8 @@ import com.kakaocert.api.verifyauth.ResultVerifyAuth;
 
 public class TEST_VerifyAuth {
 	
-	private final String testLinkID = "KAKAOCERT0406";
-	private final String testSecretKey = "9HOTRlrOipIPRGkDdELwYnESP4XTOGZbXrD67FvNyqU=";
+	private final String testLinkID = "";
+	private final String testSecretKey = "";
 	
 	private KakaocertService kakaocertService;
 	
@@ -19,8 +19,6 @@ public class TEST_VerifyAuth {
 		KakaocertServiceImp service = new KakaocertServiceImp();
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
-		service.setAuthURL("https://dev-auth.linkhub.kr");
-		service.setServiceURL("https://dev-kc-api.linkhub.kr");
 		
 		kakaocertService = service;
 		
@@ -34,16 +32,16 @@ public class TEST_VerifyAuth {
 			request.setVerifyNameYN(true);
 			request.setCallCenterNum("1600-9999");
 			request.setExpires_in(60);
-			request.setPayLoad("payload");
+			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
 			request.setReceiverHP("01043245117");
 			request.setReceiverName("정요한");
-			request.setTMSMessage("TMS Message");
-			request.setSubClientID("");
+			request.setTMSMessage(null);
+			request.setSubClientID("020040000004");
 			request.setTMSTitle("TMS Title");
 			request.setToken("token value");
 			
-			String receiptID = kakaocertService.requestVerifyAuth("020040000050", request);
+			String receiptID = kakaocertService.requestVerifyAuth("020040000001", request);
 			System.out.println(receiptID);
 			
 		} catch(KakaocertException ke) {
@@ -55,7 +53,7 @@ public class TEST_VerifyAuth {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000050", "020042215193900001");
+			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000001", "020042820574800001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

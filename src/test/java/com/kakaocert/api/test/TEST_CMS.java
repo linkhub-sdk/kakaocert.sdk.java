@@ -9,8 +9,8 @@ import com.kakaocert.api.cms.RequestCMS;
 import com.kakaocert.api.cms.ResultCMS;
 
 public class TEST_CMS {
-	private final String testLinkID = "KAKAOCERT0406";
-	private final String testSecretKey = "9HOTRlrOipIPRGkDdELwYnESP4XTOGZbXrD67FvNyqU=";
+	private final String testLinkID = "";
+	private final String testSecretKey = "";
 	
 	private KakaocertService kakaocertService;
 	
@@ -18,8 +18,6 @@ public class TEST_CMS {
 		KakaocertServiceImp service = new KakaocertServiceImp();
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
-		service.setAuthURL("https://dev-auth.linkhub.kr");
-		service.setServiceURL("https://dev-kc-api.linkhub.kr");
 		
 		kakaocertService = service;
 		
@@ -33,21 +31,21 @@ public class TEST_CMS {
 			request.setVerifyNameYN(false);
 			request.setCallCenterNum("1600-9999");
 			request.setExpires_in(60);
-			request.setPayLoad("payload");
+			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
 			request.setReceiverHP("01043245117");
 			request.setReceiverName("정요한");
-			request.setTMSMessage("TMS Message");
-			request.setSubClientID("");
-			request.setTMSTitle("TMS Title");
+			request.setTMSMessage(null);
+			request.setSubClientID("020040000004");
+			request.setTMSTitle("메시지명칭");
 			
-			request.setBankAccountName("정요한");
+			request.setBankAccountName(null);
 			request.setBankAccountNum("9-4324-5117-58");
 			request.setBankCode("004");
-			request.setClientUserID("고객123");
+			request.setClientUserID("123");
 			
 			
-			String receiptID = kakaocertService.requestCMS("020040000050", request);
+			String receiptID = kakaocertService.requestCMS("020040000001", request);
 			System.out.println(receiptID);
 			
 		} catch(KakaocertException ke) {
@@ -59,7 +57,7 @@ public class TEST_CMS {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultCMS result = kakaocertService.getCMSResult("020040000050", "020042309580800001");
+			ResultCMS result = kakaocertService.getCMSResult("020040000001", "020042820585700001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());
