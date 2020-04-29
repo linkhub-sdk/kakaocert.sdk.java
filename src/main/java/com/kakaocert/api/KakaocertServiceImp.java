@@ -23,9 +23,6 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Ordering;
 import com.google.gson.Gson;
 import com.kakaocert.api.cms.RequestCMS;
 import com.kakaocert.api.cms.ResultCMS;
@@ -334,17 +331,10 @@ public class KakaocertServiceImp implements KakaocertService{
 			
 			String signTarget = "POST\n";
 			signTarget += md5Base64(btPostData)  + "\n";
+			signTarget += date + "\n";
+			signTarget += APIVersion + "\n";
 			
-			Map<String,String> x_lh_headers = Maps.newTreeMap(Ordering.natural());
-			
-			x_lh_headers.put("x-lh-date".toLowerCase(), date);
-			x_lh_headers.put("x-lh-version".toLowerCase(), APIVersion);
-			
-			for(String headervalue : x_lh_headers.values()) {
-				signTarget += headervalue + "\n";
-			}
-			
-			String Signature = base64Encode(HMacSha1(base64Decode(getSecretKey()), signTarget.getBytes(Charsets.UTF_8)));
+			String Signature = base64Encode(HMacSha1(base64Decode(getSecretKey()), signTarget.getBytes(Charset.forName("UTF-8"))));
 			
 			httpURLConnection.setRequestProperty("x-kc-auth", getLinkID() + " " + Signature);
 			
