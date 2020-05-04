@@ -34,8 +34,8 @@ public class TEST_ESign {
 			request.setExpires_in(60);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
-			request.setReceiverHP("01043245117");
-			request.setReceiverName("정요한");
+			request.setReceiverHP("01012341234");
+			request.setReceiverName("테스트");
 			request.setTMSMessage(null);
 			request.setSubClientID("020040000004");
 			request.setTMSTitle("TMS Title");

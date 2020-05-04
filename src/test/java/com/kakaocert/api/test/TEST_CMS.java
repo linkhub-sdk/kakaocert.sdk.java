@@ -33,8 +33,8 @@ public class TEST_CMS {
 			request.setExpires_in(60);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
-			request.setReceiverHP("01043245117");
-			request.setReceiverName("정요한");
+			request.setReceiverHP("01012341234");
+			request.setReceiverName("김양반");
 			request.setTMSMessage(null);
 			request.setSubClientID("020040000004");
 			request.setTMSTitle("메시지명칭");
