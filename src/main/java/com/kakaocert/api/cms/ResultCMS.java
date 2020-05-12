@@ -4,9 +4,6 @@ public class ResultCMS {
 	private String receiptID;
 	private String regDT;
 	private int state;
-	private String receiverHP;
-	private String receiverName;
-	private String receiverBirthday;
 	private int expires_in;
 	private String callCenterNum;
 	private boolean allowSimpleRegistYN;
@@ -21,11 +18,7 @@ public class ResultCMS {
 	private String tmsmessage;
 	private String signedData;
 	
-	private String bankAccountName;
-	private String bankAccountNum;
-	private String bankCode;
-	private String clientUserID;
-	
+		
 	private String subClientName;
 	private String subClientCode;
 	private String viewDT;
@@ -40,15 +33,6 @@ public class ResultCMS {
 	}
 	public int getState() {
 		return state;
-	}
-	public String getReceiverHP() {
-		return receiverHP;
-	}
-	public String getReceiverName() {
-		return receiverName;
-	}
-	public String getReceiverBirthday() {
-		return receiverBirthday;
 	}
 	public int getExpires_in() {
 		return expires_in;
@@ -86,18 +70,6 @@ public class ResultCMS {
 	}
 	public String getSignedData() {
 		return signedData;
-	}
-	public String getBankAccountName() {
-		return bankAccountName;
-	}
-	public String getBankAccountNum() {
-		return bankAccountNum;
-	}
-	public String getBankCode() {
-		return bankCode;
-	}
-	public String getClientUserID() {
-		return clientUserID;
 	}
 	public String getSubClientName() {
 		return subClientName;

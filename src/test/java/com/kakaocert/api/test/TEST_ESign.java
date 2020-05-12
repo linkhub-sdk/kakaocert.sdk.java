@@ -59,8 +59,6 @@ public class TEST_ESign {
 			System.out.println(result.getReceiptID());
 			System.out.println(result.getRegDT());
 			System.out.println(result.getState());
-			System.out.println(result.getReceiverHP());
-			System.out.println(result.getReceiverName());
 			System.out.println(result.getExpires_in());
 			System.out.println(result.getToken());
 			System.out.println(result.isAllowSimpleRegistYN());

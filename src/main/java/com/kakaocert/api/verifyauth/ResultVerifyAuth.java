@@ -5,9 +5,6 @@ public class ResultVerifyAuth {
 	private String receiptID;
 	private String regDT;
 	private int state;
-	private String receiverHP;
-	private String receiverName;
-	private String receiverBirthday;
 	private int expires_in;
 	private String callCenterNum;
 	private String token;
@@ -36,15 +33,6 @@ public class ResultVerifyAuth {
 	}
 	public int getState() {
 		return state;
-	}
-	public String getReceiverHP() {
-		return receiverHP;
-	}
-	public String getReceiverName() {
-		return receiverName;
-	}
-	public String getReceiverBirthday() {
-		return receiverBirthday;
 	}
 	public int getExpires_in() {
 		return expires_in;

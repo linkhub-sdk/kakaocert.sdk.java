@@ -63,8 +63,6 @@ public class TEST_CMS {
 			System.out.println(result.getReceiptID());
 			System.out.println(result.getRegDT());
 			System.out.println(result.getState());
-			System.out.println(result.getReceiverHP());
-			System.out.println(result.getReceiverName());
 			System.out.println(result.getExpires_in());
 			System.out.println(result.isAllowSimpleRegistYN());
 			System.out.println(result.isVerifyNameYN());
@@ -76,10 +74,6 @@ public class TEST_CMS {
 			System.out.println(result.getTmstitle());
 			System.out.println(result.getTmsmessage());
 			System.out.println(result.getSignedData());
-			System.out.println(result.getBankAccountName());
-			System.out.println(result.getBankAccountNum());
-			System.out.println(result.getBankCode());
-			System.out.println(result.getClientUserID());
 			
 			System.out.println(result.getSubClientCode());
 			System.out.println(result.getSubClientName());
