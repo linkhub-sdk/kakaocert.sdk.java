@@ -25,6 +25,7 @@ public interface KakaocertService  {
 	 * @return receiptId(접수아이디)
 	 * @throws KakaocertException
 	 */
+	@Deprecated
 	public String requestESign(String ClientCode, RequestESign esignRequest) throws KakaocertException;
 	
 	
@@ -39,7 +40,7 @@ public interface KakaocertService  {
 	 * @return ResponseTxId
 	 * @throws KakaocertException
 	 */
-	public ResponseESign requestESignApp(String ClientCode, RequestESign esignRequest) throws KakaocertException;
+	public ResponseESign requestESign(String ClientCode, RequestESign esignRequest, boolean appUseYN) throws KakaocertException;
 	
 	
 	
@@ -68,7 +69,7 @@ public interface KakaocertService  {
 	 * @return ResultESign
 	 * @throws KakaocertException
 	 */
-	public ResultESign getESignResultApp(String ClientCode, String receiptID, String signature) throws KakaocertException;
+	public ResultESign getESignResult(String ClientCode, String receiptID, String signature) throws KakaocertException;
 	
 	/**
 	 * 본인인증 요청

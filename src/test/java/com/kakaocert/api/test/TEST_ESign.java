@@ -32,7 +32,7 @@ public class TEST_ESign {
 			request.setAllowSimpleRegistYN(true);
 			request.setVerifyNameYN(true);
 			request.setCallCenterNum("1600-9999");
-			request.setExpires_in(60);
+			request.setExpires_in(1);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
 			request.setReceiverHP("01043245117");
@@ -42,8 +42,9 @@ public class TEST_ESign {
 			request.setTMSTitle("TMS Title");
 			request.setToken("token value");
 			
-			String receiptID = kakaocertService.requestESign("020040000001", request);
-			System.out.println(receiptID);
+			ResponseESign response = kakaocertService.requestESign("020040000001", request, false);
+			System.out.println(response.getReceiptId());
+			System.out.println(response.getTx_id());
 			
 		} catch(KakaocertException ke) {
 			System.out.println(ke.getCode());
@@ -54,7 +55,7 @@ public class TEST_ESign {
 	@Test
 	public void getESignResult_TEST() throws KakaocertException {
 		try {
-			ResultESign result = kakaocertService.getESignResult("020040000001", "020083112232800001");
+			ResultESign result = kakaocertService.getESignResult("020040000001", "020083114191400001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());
@@ -93,7 +94,7 @@ public class TEST_ESign {
 			request.setAllowSimpleRegistYN(true);
 			request.setVerifyNameYN(true);
 			request.setCallCenterNum("1600-9999");
-			request.setExpires_in(60);
+			request.setExpires_in(1);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
 			request.setReceiverHP("01043245117");
@@ -103,7 +104,7 @@ public class TEST_ESign {
 			request.setTMSTitle("TMS Title");
 			request.setToken("token value");
 			
-			ResponseESign receiptID = kakaocertService.requestESignApp("020040000001", request);
+			ResponseESign receiptID = kakaocertService.requestESign("020040000001", request, true);
 			System.out.println(receiptID.getReceiptId());
 			System.out.println(receiptID.getTx_id());
 			
@@ -116,7 +117,7 @@ public class TEST_ESign {
 	@Test
 	public void getESignResultApp_TEST() throws KakaocertException {
 		try {
-			ResultESign result = kakaocertService.getESignResultApp("020040000001", "020083113360800001", "123");
+			ResultESign result = kakaocertService.getESignResult("020040000001", "020083114203500001", "123");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

@@ -573,18 +573,20 @@ public class KakaocertServiceImp implements KakaocertService{
 		
 		String PostData = toJsonString(esignRequest);
 		
+		esignRequest.setAppUseYN(false);
+		
 		ReceiptResponse response = httppost("/SignToken/Request", ClientCode, PostData, null, ReceiptResponse.class);
 		
 		return response.receiptId;
 	}
 	
 	@Override
-	public ResponseESign requestESignApp(String ClientCode, RequestESign esignRequest) throws KakaocertException {
+	public ResponseESign requestESign(String ClientCode, RequestESign esignRequest, boolean appUseYN) throws KakaocertException {
 		
 		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
 		if(null == esignRequest) throw new KakaocertException(-99999999, "전자서명 요청정보가 입력되지 않았습니다.");
 		
-		esignRequest.setAppUseYN(true);
+		esignRequest.setAppUseYN(appUseYN);
 		
 		String PostData = toJsonString(esignRequest);
 		
@@ -606,7 +608,7 @@ public class KakaocertServiceImp implements KakaocertService{
 	
 	
 	@Override
-	public ResultESign getESignResultApp(String ClientCode, String receiptID, String signature)
+	public ResultESign getESignResult(String ClientCode, String receiptID, String signature)
 			throws KakaocertException {
 		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
 		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
