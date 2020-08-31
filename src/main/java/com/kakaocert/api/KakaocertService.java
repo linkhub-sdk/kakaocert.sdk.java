@@ -16,28 +16,59 @@ import com.kakaocert.api.verifyauth.ResultVerifyAuth;
 public interface KakaocertService  {
 	
 	/**
-	 * 간편서명 요청 
+	 * 전자서명 요청 
 	 * 
 	 * @param ClientCode
 	 * 			이용기관코드
 	 * @param esignRequest
-	 * 			간편서명 요청정보
+	 * 			전자서명 요청정보
 	 * @return receiptId(접수아이디)
 	 * @throws KakaocertException
 	 */
 	public String requestESign(String ClientCode, RequestESign esignRequest) throws KakaocertException;
 	
+	
+	
 	/**
-	 * 간편서명 결과 확인
+	 * 전자서명 요청 
+	 * 
+	 * @param ClientCode
+	 * 			이용기관코드
+	 * @param esignRequest
+	 * 			전자서명 요청정보
+	 * @return ResponseTxId
+	 * @throws KakaocertException
+	 */
+	public ResponseESign requestESignApp(String ClientCode, RequestESign esignRequest) throws KakaocertException;
+	
+	
+	
+	
+	/**
+	 * 전자서명 결과 확인
 	 * 
 	 * @param ClientCode
 	 * 			이용기관코드
 	 * @param receiptID
-	 * 			간편서명 접수아이디
+	 * 			전자서명 접수아이디
 	 * @return ResultESign
 	 * @throws KakaocertException
 	 */
 	public ResultESign getESignResult(String ClientCode, String receiptID) throws KakaocertException;
+	
+	/**
+	 * 전자서명 결과 확인
+	 * 
+	 * @param ClientCode
+	 * 			이용기관코드
+	 * @param receiptID
+	 * 			전자서명 접수아이디
+	 * @param signature
+	 * 			앱스킴 success 호출시 반환된 서명값 
+	 * @return ResultESign
+	 * @throws KakaocertException
+	 */
+	public ResultESign getESignResultApp(String ClientCode, String receiptID, String signature) throws KakaocertException;
 	
 	/**
 	 * 본인인증 요청
@@ -85,6 +116,10 @@ public interface KakaocertService  {
 	 * @throws KakaocertException
 	 */
 	public ResultCMS getCMSResult(String ClientCode, String receiptID) throws KakaocertException;
+
+
+
+	
 	
 	
 }

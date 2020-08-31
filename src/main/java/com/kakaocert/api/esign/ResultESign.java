@@ -24,6 +24,8 @@ public class ResultESign {
 	private String viewDT;
 	private String completeDT;
 	private String verifyDT;
+	private boolean appUseYN;
+	private String tx_id;
 	
 	public String getReceiptID() {
 		return receiptID;
@@ -87,6 +89,12 @@ public class ResultESign {
 	}
 	public String getVerifyDT() {
 		return verifyDT;
+	}
+	public boolean isAppUseYN() {
+		return appUseYN;
+	}
+	public String getTx_id() {
+		return tx_id;
 	}
 	
 }

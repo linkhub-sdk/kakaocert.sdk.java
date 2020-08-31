@@ -23,6 +23,7 @@ public class RequestESign implements Serializable{
 	private String Token;
 	private boolean isAllowSimpleRegistYN;
 	private boolean isVerifyNameYN;
+	private boolean isAppUseYN;
 	
 	/**
 	 * 고객센터 전화번호 확인
@@ -237,6 +238,14 @@ public class RequestESign implements Serializable{
 	 */
 	public void setVerifyNameYN(boolean isVerifyNameYN) {
 		this.isVerifyNameYN = isVerifyNameYN;
+	}
+
+	public boolean isAppUseYN() {
+		return isAppUseYN;
+	}
+
+	public void setAppUseYN(boolean isAppUseYN) {
+		this.isAppUseYN = isAppUseYN;
 	}
 	
 

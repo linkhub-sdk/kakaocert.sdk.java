@@ -10,8 +10,8 @@ import com.kakaocert.api.verifyauth.ResultVerifyAuth;
 
 public class TEST_VerifyAuth {
 	
-	private final String testLinkID = "";
-	private final String testSecretKey = "";
+	private final String testLinkID = "TESTER";
+	private final String testSecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=";
 	
 	private KakaocertService kakaocertService;
 	
@@ -31,11 +31,11 @@ public class TEST_VerifyAuth {
 			request.setAllowSimpleRegistYN(true);
 			request.setVerifyNameYN(true);
 			request.setCallCenterNum("1600-9999");
-			request.setExpires_in(60);
+			request.setExpires_in(1000);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19900108");
-			request.setReceiverHP("01012341234");
-			request.setReceiverName("테스트");
+			request.setReceiverHP("01043245117");
+			request.setReceiverName("정요한");
 			request.setTMSMessage(null);
 			request.setSubClientID("020040000004");
 			request.setTMSTitle("TMS Title");
@@ -53,7 +53,7 @@ public class TEST_VerifyAuth {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000001", "020042820574800001");
+			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000001", "020083113350700001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());

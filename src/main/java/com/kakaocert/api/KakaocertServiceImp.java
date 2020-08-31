@@ -569,13 +569,28 @@ public class KakaocertServiceImp implements KakaocertService{
 	public String requestESign(String ClientCode, RequestESign esignRequest) throws KakaocertException {
 		
 		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
-		if(null == esignRequest) throw new KakaocertException(-99999999, "간편서명 요청정보가 입력되지 않았습니다.");
+		if(null == esignRequest) throw new KakaocertException(-99999999, "전자서명 요청정보가 입력되지 않았습니다.");
 		
 		String PostData = toJsonString(esignRequest);
 		
 		ReceiptResponse response = httppost("/SignToken/Request", ClientCode, PostData, null, ReceiptResponse.class);
 		
 		return response.receiptId;
+	}
+	
+	@Override
+	public ResponseESign requestESignApp(String ClientCode, RequestESign esignRequest) throws KakaocertException {
+		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == esignRequest) throw new KakaocertException(-99999999, "전자서명 요청정보가 입력되지 않았습니다.");
+		
+		esignRequest.setAppUseYN(true);
+		
+		String PostData = toJsonString(esignRequest);
+		
+		ResponseESign response = httppost("/SignToken/Request", ClientCode, PostData, null, ResponseESign.class);
+		
+		return response;
 	}
 	
 	
@@ -586,6 +601,18 @@ public class KakaocertServiceImp implements KakaocertService{
 		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
 		
 		return httpget("/SignToken/" + receiptID, ClientCode, null,
+				ResultESign.class);
+	}
+	
+	
+	@Override
+	public ResultESign getESignResultApp(String ClientCode, String receiptID, String signature)
+			throws KakaocertException {
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
+		if(null == signature || signature.length() == 0 ) throw new KakaocertException(-99999999, "서명값이 입력되지 않았습니다.");
+		
+		return httpget("/SignToken/" + receiptID+"/"+signature, ClientCode, null,
 				ResultESign.class);
 	}
 	
@@ -634,6 +661,10 @@ public class KakaocertServiceImp implements KakaocertService{
 		return httpget("/SignDirectDebit/" + receiptID, ClientCode, null,
 				ResultCMS.class);
 	}
+
+	
+
+	
 	
 	
 }
