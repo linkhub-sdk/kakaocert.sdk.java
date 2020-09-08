@@ -7,7 +7,6 @@ public class ResultVerifyAuth {
 	private int state;
 	private int expires_in;
 	private String callCenterNum;
-	private String token;
 	private boolean allowSimpleRegistYN;
 	private boolean verifyNameYN;
 	private String payload;
@@ -17,7 +16,6 @@ public class ResultVerifyAuth {
 	private String clientName;
 	private String tmstitle;
 	private String tmsmessage;
-	private String returnToken;
 	
 	private String subClientName;
 	private String subClientCode;
@@ -39,9 +37,6 @@ public class ResultVerifyAuth {
 	}
 	public String getCallCenterNum() {
 		return callCenterNum;
-	}
-	public String getToken() {
-		return token;
 	}
 	public boolean isAllowSimpleRegistYN() {
 		return allowSimpleRegistYN;
@@ -69,9 +64,6 @@ public class ResultVerifyAuth {
 	}
 	public String getTmsmessage() {
 		return tmsmessage;
-	}
-	public String getReturnToken() {
-		return returnToken;
 	}
 	public String getSubClientName() {
 		return subClientName;

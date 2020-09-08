@@ -43,10 +43,8 @@ public interface KakaocertService  {
 	public ResponseESign requestESign(String ClientCode, RequestESign esignRequest, boolean appUseYN) throws KakaocertException;
 	
 	
-	
-	
 	/**
-	 * 전자서명 결과 확인
+	 * 전자서명 상태 확인
 	 * 
 	 * @param ClientCode
 	 * 			이용기관코드
@@ -55,21 +53,29 @@ public interface KakaocertService  {
 	 * @return ResultESign
 	 * @throws KakaocertException
 	 */
-	public ResultESign getESignResult(String ClientCode, String receiptID) throws KakaocertException;
+	public ResultESign getESignState(String ClientCode, String receiptID) throws KakaocertException;
+	
 	
 	/**
-	 * 전자서명 결과 확인
+	 * 전자서명 서명검증
 	 * 
 	 * @param ClientCode
-	 * 			이용기관코드
 	 * @param receiptID
-	 * 			전자서명 접수아이디
-	 * @param signature
-	 * 			앱스킴 success 호출시 반환된 서명값 
-	 * @return ResultESign
+	 * @return
 	 * @throws KakaocertException
 	 */
-	public ResultESign getESignResult(String ClientCode, String receiptID, String signature) throws KakaocertException;
+	public VerifyResult verifyESign(String ClientCode, String receiptID) throws KakaocertException;
+	
+	/**
+	 * 전자서명 서명검증
+	 * 
+	 * @param ClientCode
+	 * @param receiptID
+	 * @return
+	 * @throws KakaocertException
+	 */
+	public VerifyResult verifyESign(String ClientCode, String receiptID, String signature) throws KakaocertException;
+
 	
 	/**
 	 * 본인인증 요청
@@ -83,7 +89,7 @@ public interface KakaocertService  {
 	public String requestVerifyAuth(String ClientCode, RequestVerifyAuth verifyAuthRequest) throws KakaocertException;
 	
 	/**
-	 * 본인인증 결과 확인
+	 * 본인인증 상태 확인
 	 * 
 	 * @param ClientCode
 	 * 			이용기관코드
@@ -92,7 +98,17 @@ public interface KakaocertService  {
 	 * @return ResultVerifyAuth
 	 * @throws KakaocertException
 	 */
-	public ResultVerifyAuth getVerifyAuthResult(String ClientCode, String receiptID) throws KakaocertException;
+	public ResultVerifyAuth getVerifyAuthState(String ClientCode, String receiptID) throws KakaocertException;
+	
+	/**
+	 * 본인인증 서명 검증
+	 * 
+	 * @param ClientCode
+	 * @param receiptID
+	 * @return
+	 * @throws KakaocertException
+	 */
+	public VerifyResult verifyAuth(String ClientCode, String receiptID) throws KakaocertException;
 	
 	/**
 	 * 출금동의 요청
@@ -107,7 +123,7 @@ public interface KakaocertService  {
 	public String requestCMS(String ClientCode, RequestCMS cmsRequest) throws KakaocertException;
 	
 	/**
-	 * 출금동의 결과 확인
+	 * 출금동의 상태 확인
 	 * 
 	 * @param ClientCode
 	 * 			이용기관코드
@@ -116,7 +132,17 @@ public interface KakaocertService  {
 	 * @return ResultCMS
 	 * @throws KakaocertException
 	 */
-	public ResultCMS getCMSResult(String ClientCode, String receiptID) throws KakaocertException;
+	public ResultCMS getCMSState(String ClientCode, String receiptID) throws KakaocertException;
+	
+	/**
+	 * 출금동의 서명 검증
+	 * 
+	 * @param ClientCode
+	 * @param receiptID
+	 * @return
+	 * @throws KakaocertException
+	 */
+	public VerifyResult verifyCMS(String ClientCode, String receiptID) throws KakaocertException;
 
 
 

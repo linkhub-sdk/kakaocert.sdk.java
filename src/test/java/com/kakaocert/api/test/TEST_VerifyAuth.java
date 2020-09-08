@@ -5,6 +5,7 @@ import org.junit.Test;
 import com.kakaocert.api.KakaocertException;
 import com.kakaocert.api.KakaocertService;
 import com.kakaocert.api.KakaocertServiceImp;
+import com.kakaocert.api.VerifyResult;
 import com.kakaocert.api.verifyauth.RequestVerifyAuth;
 import com.kakaocert.api.verifyauth.ResultVerifyAuth;
 
@@ -53,14 +54,13 @@ public class TEST_VerifyAuth {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultVerifyAuth result = kakaocertService.getVerifyAuthResult("020040000001", "020083113350700001");
+			ResultVerifyAuth result = kakaocertService.getVerifyAuthState("020040000001", "020090815371100001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());
 			System.out.println(result.getRegDT());
 			System.out.println(result.getState());
 			System.out.println(result.getExpires_in());
-			System.out.println(result.getToken());
 			System.out.println(result.isAllowSimpleRegistYN());
 			System.out.println(result.isVerifyNameYN());
 			System.out.println(result.getPayload());
@@ -70,7 +70,6 @@ public class TEST_VerifyAuth {
 			System.out.println(result.getClientName());
 			System.out.println(result.getTmstitle());
 			System.out.println(result.getTmsmessage());
-			System.out.println(result.getReturnToken());
 			
 			System.out.println(result.getSubClientCode());
 			System.out.println(result.getSubClientName());
@@ -78,6 +77,20 @@ public class TEST_VerifyAuth {
 			System.out.println(result.getViewDT());
 			System.out.println(result.getCompleteDT());
 			System.out.println(result.getVerifyDT());
+			
+		} catch (KakaocertException ke) {
+			System.out.println(ke.getCode());
+			System.out.println(ke.getMessage());
+		}
+	}
+	
+	@Test
+	public void verifyAuth_TEST() throws KakaocertException {
+		try {
+			VerifyResult result = kakaocertService.verifyAuth("020040000001", "020090815371100001");
+			
+			System.out.println(result.getReceiptId());
+			System.out.println(result.getSignedData());
 			
 		} catch (KakaocertException ke) {
 			System.out.println(ke.getCode());

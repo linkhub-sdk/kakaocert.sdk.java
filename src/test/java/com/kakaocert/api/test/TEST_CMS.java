@@ -5,6 +5,7 @@ import org.junit.Test;
 import com.kakaocert.api.KakaocertException;
 import com.kakaocert.api.KakaocertService;
 import com.kakaocert.api.KakaocertServiceImp;
+import com.kakaocert.api.VerifyResult;
 import com.kakaocert.api.cms.RequestCMS;
 import com.kakaocert.api.cms.ResultCMS;
 
@@ -57,7 +58,7 @@ public class TEST_CMS {
 	@Test
 	public void getResult_TEST() throws KakaocertException {
 		try {
-			ResultCMS result = kakaocertService.getCMSResult("020040000001", "020042820585700001");
+			ResultCMS result = kakaocertService.getCMSState("020040000001", "020090815341800001");
 			
 			System.out.println(result.getCallCenterNum());
 			System.out.println(result.getReceiptID());
@@ -73,7 +74,6 @@ public class TEST_CMS {
 			System.out.println(result.getClientName());
 			System.out.println(result.getTmstitle());
 			System.out.println(result.getTmsmessage());
-			System.out.println(result.getSignedData());
 			
 			System.out.println(result.getSubClientCode());
 			System.out.println(result.getSubClientName());
@@ -81,6 +81,20 @@ public class TEST_CMS {
 			System.out.println(result.getViewDT());
 			System.out.println(result.getCompleteDT());
 			System.out.println(result.getVerifyDT());
+			
+		} catch (KakaocertException ke) {
+			System.out.println(ke.getCode());
+			System.out.println(ke.getMessage());
+		}
+	}
+	
+	@Test
+	public void verifyCMS_TEST() throws KakaocertException {
+		try {
+			VerifyResult result = kakaocertService.verifyCMS("020040000001", "020090815341800001");
+			
+			System.out.println(result.getReceiptId());
+			System.out.println(result.getSignedData());
 			
 		} catch (KakaocertException ke) {
 			System.out.println(ke.getCode());

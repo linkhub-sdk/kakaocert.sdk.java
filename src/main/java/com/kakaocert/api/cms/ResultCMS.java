@@ -16,7 +16,6 @@ public class ResultCMS {
 	private String clientName;
 	private String tmstitle;
 	private String tmsmessage;
-	private String signedData;
 	
 		
 	private String subClientName;
@@ -67,9 +66,6 @@ public class ResultCMS {
 	}
 	public String getTmsmessage() {
 		return tmsmessage;
-	}
-	public String getSignedData() {
-		return signedData;
 	}
 	public String getSubClientName() {
 		return subClientName;
