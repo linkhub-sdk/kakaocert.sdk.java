@@ -21,6 +21,7 @@ public class TEST_ESign {
 		KakaocertServiceImp service = new KakaocertServiceImp();
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
+		service.setUseStaticIP(false);
 		
 		kakaocertService = service;
 		

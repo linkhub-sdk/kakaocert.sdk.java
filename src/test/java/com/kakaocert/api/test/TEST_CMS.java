@@ -19,6 +19,7 @@ public class TEST_CMS {
 		KakaocertServiceImp service = new KakaocertServiceImp();
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
+		service.setUseStaticIP(false);
 		
 		kakaocertService = service;
 		

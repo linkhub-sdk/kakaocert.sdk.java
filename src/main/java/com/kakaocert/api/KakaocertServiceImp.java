@@ -38,7 +38,9 @@ import kr.co.linkhub.auth.TokenBuilder;
 public class KakaocertServiceImp implements KakaocertService{
 
 	private static final String ServiceID = "KAKAOCERT";
+	private static final String Auth_GA_URL= "https://ga-auth.linkhub.co.kr";
 	private static final String ServiceURL_REAL = "https://kakaocert-api.linkhub.co.kr";
+	private static final String ServiceURL_GA_REAL = "https://ga-kakaocert-api.linkhub.co.kr";
 	private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
 	private final String APIVersion = "1.0";
 	private String ServiceURL = null;
@@ -47,6 +49,7 @@ public class KakaocertServiceImp implements KakaocertService{
 	private TokenBuilder tokenBuilder;
 	
 	private boolean isIPRestrictOnOff;
+	private boolean useStaticIP;
 	private String _linkID;
 	private String _secretKey;
 	private Gson _gsonParser = new Gson();
@@ -55,16 +58,28 @@ public class KakaocertServiceImp implements KakaocertService{
 	
 	public KakaocertServiceImp() {
 		isIPRestrictOnOff = true;
+		useStaticIP = false;
 	}
-
+	
 	public void setIPRestrictOnOff(boolean isIPRestrictOnOff) {
 		this.isIPRestrictOnOff = isIPRestrictOnOff;
 	}
 
+	public void setUseStaticIP(boolean useStaticIP) {
+		this.useStaticIP = useStaticIP;
+	}
+	
+	public boolean isUseStaticIP() {
+		return useStaticIP;
+	}
+	
 	public String getServiceURL() {
 		
 		if(ServiceURL != null) return ServiceURL;
 		
+		if(useStaticIP) {
+			return ServiceURL_GA_REAL;
+		}
 		return ServiceURL_REAL;
 	}
 
@@ -103,7 +118,14 @@ public class KakaocertServiceImp implements KakaocertService{
 					.ServiceID(ServiceID)
 					.addScope("member");
 			
-			if(AuthURL != null) tokenBuilder.setServiceURL(AuthURL);
+			if(AuthURL != null) {
+				tokenBuilder.setServiceURL(AuthURL);
+			} else {
+				// AuthURL 이 null이고, useStaticIP 가 True인 경우. GA-AUTH 호출.
+				if(useStaticIP) {
+					tokenBuilder.setServiceURL(Auth_GA_URL);
+				}
+			}
 			
 			tokenBuilder.addScope("310");
 			tokenBuilder.addScope("320");
