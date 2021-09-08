@@ -41,8 +41,8 @@ public class KakaocertServiceImp implements KakaocertService{
 	private static final String Auth_GA_URL= "https://ga-auth.linkhub.co.kr";
 	private static final String ServiceURL_REAL = "https://kakaocert-api.linkhub.co.kr";
 	private static final String ServiceURL_GA_REAL = "https://ga-kakaocert-api.linkhub.co.kr";
-	private static final String HMAC_SHA1_ALGORITHM = "HmacSHA1";
-	private final String APIVersion = "1.0";
+	private static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
+	private final String APIVersion = "2.0";
 	private String ServiceURL = null;
 	private String AuthURL = null;
 	
@@ -253,38 +253,38 @@ public class KakaocertServiceImp implements KakaocertService{
 			throws KakaocertException {
 		return httppost(url, CorpNum, PostData, UserID, Action, clazz, null);
 	}	
-
-	private static String md5Base64(byte[] input) {
-    	MessageDigest md;
-    	byte[] btResult = null;
+	
+	private static String sha256Base64(byte[] input) {
+		MessageDigest md;
+		byte[] btResult = null;
 		try {
-			md = MessageDigest.getInstance("MD5");
+			md = MessageDigest.getInstance("SHA-256");
 			btResult = md.digest(input);
-		} catch (NoSuchAlgorithmException e) {	}
-    	
-    	return base64Encode(btResult);
-    }
+		} catch (NoSuchAlgorithmException e) {    }
+		
+		return base64Encode(btResult);
+	}
+
+	private static byte[] base64Decode(String input) {
+		return DatatypeConverter.parseBase64Binary(input);
+	}
     
-    private static byte[] base64Decode(String input) {
-    	return DatatypeConverter.parseBase64Binary(input);
-    }
+	private static String base64Encode(byte[] input) {
+		return DatatypeConverter.printBase64Binary(input);
+	}
     
-    private static String base64Encode(byte[] input) {
-    	return DatatypeConverter.printBase64Binary(input);
-    }
-    
-    private static byte[] HMacSha1(byte[] key, byte[] input) throws KakaocertException {
-    	try
-    	{
-			SecretKeySpec signingKey = new SecretKeySpec(key, HMAC_SHA1_ALGORITHM);
-			Mac mac = Mac.getInstance(HMAC_SHA1_ALGORITHM);
+	private static byte[] HMacSha256(byte[] key, byte[] input) throws KakaocertException {
+		try
+		{
+			SecretKeySpec signingKey = new SecretKeySpec(key, HMAC_SHA256_ALGORITHM);
+			Mac mac = Mac.getInstance(HMAC_SHA256_ALGORITHM);
 			mac.init(signingKey);
 			return mac.doFinal(input);
-    	}
-    	catch(Exception e) 
-    	{
-    		throw new KakaocertException(-99999999, "Fail to Calculate HMAC-SHA1, Please check your SecretKey.",e);
-    	}
+		}
+		catch(Exception e) 
+		{
+			throw new KakaocertException(-99999999, "Fail to Calculate HMAC-SHA256, Please check your SecretKey.",e);
+		}
 	}
     
 	/**
@@ -352,11 +352,11 @@ public class KakaocertServiceImp implements KakaocertService{
 					String.valueOf(btPostData.length));
 			
 			String signTarget = "POST\n";
-			signTarget += md5Base64(btPostData)  + "\n";
+			signTarget += sha256Base64(btPostData)  + "\n";
 			signTarget += date + "\n";
 			signTarget += APIVersion + "\n";
 			
-			String Signature = base64Encode(HMacSha1(base64Decode(getSecretKey()), signTarget.getBytes(Charset.forName("UTF-8"))));
+			String Signature = base64Encode(HMacSha256(base64Decode(getSecretKey()), signTarget.getBytes(Charset.forName("UTF-8"))));
 			
 			httpURLConnection.setRequestProperty("x-kc-auth", getLinkID() + " " + Signature);
 			
