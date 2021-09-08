@@ -196,8 +196,8 @@ public class KakaocertServiceImp implements KakaocertService{
 	
 	
 	protected class ReceiptResponse {
-        public String receiptId;
-    }
+		public String receiptId;
+	}
 	
 	
 	
@@ -711,10 +711,5 @@ public class KakaocertServiceImp implements KakaocertService{
 		return httpget("/SignDirectDebit/Verify/" + receiptID, ClientCode, null,
 				VerifyResult.class);
 	}
-
-	
-
-	
-	
 	
 }
