@@ -38,8 +38,10 @@ import kr.co.linkhub.auth.TokenBuilder;
 public class KakaocertServiceImp implements KakaocertService{
 
 	private static final String ServiceID = "KAKAOCERT";
+	private static final String Auth_Static_URL= "https://static-auth.linkhub.co.kr";
 	private static final String Auth_GA_URL= "https://ga-auth.linkhub.co.kr";
 	private static final String ServiceURL_REAL = "https://kakaocert-api.linkhub.co.kr";
+	private static final String ServiceURL_Static_REAL = "https://static-kakaocert-api.linkhub.co.kr";
 	private static final String ServiceURL_GA_REAL = "https://ga-kakaocert-api.linkhub.co.kr";
 	private static final String HMAC_SHA256_ALGORITHM = "HmacSHA256";
 	private final String APIVersion = "2.0";
@@ -50,6 +52,7 @@ public class KakaocertServiceImp implements KakaocertService{
 	
 	private boolean isIPRestrictOnOff;
 	private boolean useStaticIP;
+	private boolean useGAIP;
 	private String _linkID;
 	private String _secretKey;
 	private Gson _gsonParser = new Gson();
@@ -59,6 +62,7 @@ public class KakaocertServiceImp implements KakaocertService{
 	public KakaocertServiceImp() {
 		isIPRestrictOnOff = true;
 		useStaticIP = false;
+		useGAIP = false;
 	}
 	
 	public void setIPRestrictOnOff(boolean isIPRestrictOnOff) {
@@ -69,16 +73,26 @@ public class KakaocertServiceImp implements KakaocertService{
 		this.useStaticIP = useStaticIP;
 	}
 	
+	public void setUseGAIP(boolean useGAIP) {
+		this.useGAIP = useGAIP;
+	}
+	
 	public boolean isUseStaticIP() {
 		return useStaticIP;
+	}
+	
+	public boolean isUseGAIP() {
+		return useGAIP;
 	}
 	
 	public String getServiceURL() {
 		
 		if(ServiceURL != null) return ServiceURL;
 		
-		if(useStaticIP) {
+		if(useGAIP ) {
 			return ServiceURL_GA_REAL;
+		} else if(useStaticIP) {
+			return ServiceURL_Static_REAL;
 		}
 		return ServiceURL_REAL;
 	}
@@ -121,9 +135,11 @@ public class KakaocertServiceImp implements KakaocertService{
 			if(AuthURL != null) {
 				tokenBuilder.setServiceURL(AuthURL);
 			} else {
-				// AuthURL 이 null이고, useStaticIP 가 True인 경우. GA-AUTH 호출.
-				if(useStaticIP) {
+				// AuthURL 이 null이고, useGAIP가 True 일때 GA-AUTH, useStaticIP 가 True일때. GA-Static 호출.
+				if(useGAIP) {
 					tokenBuilder.setServiceURL(Auth_GA_URL);
+				} else if(useStaticIP) {
+					tokenBuilder.setServiceURL(Auth_Static_URL);
 				}
 			}
 			

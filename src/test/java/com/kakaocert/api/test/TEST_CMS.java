@@ -20,7 +20,6 @@ public class TEST_CMS {
 		service.setLinkID(testLinkID);
 		service.setSecretKey(testSecretKey);
 		service.setUseStaticIP(false);
-		
 		kakaocertService = service;
 		
 	}

@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>kr.co.linkhub</groupId>
-	  <artifactId>kakaocert-sdk</artifactId>
-	  <version>2.2.0</version>
+		<artifactId>kakaocert-sdk</artifactId>
+		<version>2.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>Kakaocert API SDK</name>
@@ -100,8 +100,8 @@
 							<goal>jar</goal>
 						</goals>
 						<configuration>
-			                <additionalparam>-Xdoclint:none</additionalparam>
-			            </configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
