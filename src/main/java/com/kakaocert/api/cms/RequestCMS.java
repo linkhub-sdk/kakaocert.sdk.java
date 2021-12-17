@@ -23,6 +23,7 @@ public class RequestCMS implements Serializable{
 	private String TMSTitle;
 	private boolean isAllowSimpleRegistYN;
 	private boolean isVerifyNameYN;
+	private boolean isAppUseYN;
 	
 	private String BankAccountName;
 	private String BankAccountNum;
@@ -304,5 +305,23 @@ public class RequestCMS implements Serializable{
 	 */
 	public void setClientUserID(String clientUserID) {
 		ClientUserID = clientUserID;
+	}
+	
+	/**
+	 * App to App 방식 이용 여부 확인
+	 * 
+	 * @return isAppUseYN
+	 */
+	public boolean isAppUseYN() {
+		return isAppUseYN;
+	}
+
+	/**
+	 * App to App 방식 이용 설정
+	 * 
+	 * @param isAppUseYN
+	 */
+	public void setAppUseYN(boolean isAppUseYN) {
+		this.isAppUseYN = isAppUseYN;
 	}
 }

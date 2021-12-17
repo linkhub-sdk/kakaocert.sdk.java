@@ -1,6 +1,6 @@
 package com.kakaocert.api;
 
-public class ResponseESign {
+public class ResponseCMS {
 	
 	private String receiptId;
 	private String tx_id;

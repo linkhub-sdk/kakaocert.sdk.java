@@ -16,14 +16,19 @@ public class ResultCMS {
 	private String clientName;
 	private String tmstitle;
 	private String tmsmessage;
-	
 		
 	private String subClientName;
 	private String subClientCode;
 	private String viewDT;
 	private String completeDT;
 	private String verifyDT;
+	private boolean appUseYN;
+	private String tx_id;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getReceiptID() {
 		return receiptID;
 	}
@@ -82,4 +87,11 @@ public class ResultCMS {
 	public String getVerifyDT() {
 		return verifyDT;
 	}
+	public boolean isAppUseYN() {
+		return appUseYN;
+	}
+	public String getTx_id() {
+		return tx_id;
+	}
+	
 }

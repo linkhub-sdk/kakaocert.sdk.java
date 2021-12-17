@@ -35,9 +35,9 @@ public class TEST_VerifyAuth {
 			request.setCallCenterNum("1600-9999");
 			request.setExpires_in(1000);
 			request.setPayLoad(null);
-			request.setReceiverBirthDay("19900108");
-			request.setReceiverHP("01043245117");
-			request.setReceiverName("정요한");
+			request.setReceiverBirthDay("19700101");
+			request.setReceiverHP("01012341234");
+			request.setReceiverName("홍길동");
 			request.setTMSMessage(null);
 			request.setSubClientID("020040000004");
 			request.setTMSTitle("TMS Title");

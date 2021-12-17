@@ -240,10 +240,20 @@ public class RequestESign implements Serializable{
 		this.isVerifyNameYN = isVerifyNameYN;
 	}
 
+	/**
+	 * App to App 방식 이용 확인
+	 * 
+	 * @return isAppUseYN
+	 */
 	public boolean isAppUseYN() {
 		return isAppUseYN;
 	}
 
+	/**
+	 * App to App 방식 이용 여부 설정
+	 * 
+	 * @param isAppUseYN
+	 */
 	public void setAppUseYN(boolean isAppUseYN) {
 		this.isAppUseYN = isAppUseYN;
 	}

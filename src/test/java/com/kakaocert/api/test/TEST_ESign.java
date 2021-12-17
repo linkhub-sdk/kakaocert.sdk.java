@@ -36,9 +36,9 @@ public class TEST_ESign {
 			request.setCallCenterNum("1600-9999");
 			request.setExpires_in(60);
 			request.setPayLoad(null);
-			request.setReceiverBirthDay("19900108");
-			request.setReceiverHP("01043245117");
-			request.setReceiverName("정요한");
+			request.setReceiverBirthDay("19700101");
+			request.setReceiverHP("01012341234");
+			request.setReceiverName("홍길동");
 			request.setTMSMessage(null);
 			request.setSubClientID("");
 			request.setTMSTitle("TMS Title");

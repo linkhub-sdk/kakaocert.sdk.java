@@ -21,7 +21,6 @@ import java.util.zip.GZIPInputStream;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 
 import com.google.gson.Gson;
 import com.kakaocert.api.cms.RequestCMS;
@@ -31,6 +30,7 @@ import com.kakaocert.api.esign.ResultESign;
 import com.kakaocert.api.verifyauth.RequestVerifyAuth;
 import com.kakaocert.api.verifyauth.ResultVerifyAuth;
 
+import kr.co.linkhub.auth.Base64;
 import kr.co.linkhub.auth.LinkhubException;
 import kr.co.linkhub.auth.Token;
 import kr.co.linkhub.auth.TokenBuilder;
@@ -278,15 +278,15 @@ public class KakaocertServiceImp implements KakaocertService{
 			btResult = md.digest(input);
 		} catch (NoSuchAlgorithmException e) {    }
 		
-		return base64Encode(btResult);
+		return Base64.encode(btResult);
 	}
 
 	private static byte[] base64Decode(String input) {
-		return DatatypeConverter.parseBase64Binary(input);
+		return Base64.decode(input);
 	}
     
 	private static String base64Encode(byte[] input) {
-		return DatatypeConverter.printBase64Binary(input);
+		return Base64.encode(input);
 	}
     
 	private static byte[] HMacSha256(byte[] key, byte[] input) throws KakaocertException {
@@ -609,9 +609,10 @@ public class KakaocertServiceImp implements KakaocertService{
 		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
 		if(null == esignRequest) throw new KakaocertException(-99999999, "전자서명 요청정보가 입력되지 않았습니다.");
 		
+		esignRequest.setAppUseYN(false);
+		
 		String PostData = toJsonString(esignRequest);
 		
-		esignRequest.setAppUseYN(false);
 		
 		ReceiptResponse response = httppost("/SignToken/Request", ClientCode, PostData, null, ReceiptResponse.class);
 		
@@ -652,11 +653,30 @@ public class KakaocertServiceImp implements KakaocertService{
 		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
 		if(null == cmsRequest) throw new KakaocertException(-99999999, "자동이체 출금동의 요청정보가 입력되지 않았습니다.");
 		
+		cmsRequest.setAppUseYN(false);
+		
 		String PostData = toJsonString(cmsRequest);
+		
 		
 		ReceiptResponse response = httppost("/SignDirectDebit/Request", ClientCode, PostData, null, ReceiptResponse.class);
 		
 		return response.receiptId;
+	}
+	
+	@Override
+	public ResponseCMS requestCMS(String ClientCode, RequestCMS cmsRequest, boolean appUseYN) throws KakaocertException {
+		
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == cmsRequest) throw new KakaocertException(-99999999, "자동이체 출금동의 요청정보가 입력되지 않았습니다.");
+		
+		cmsRequest.setAppUseYN(appUseYN);
+		
+		String PostData = toJsonString(cmsRequest);
+		
+		
+		ResponseCMS response = httppost("/SignDirectDebit/Request", ClientCode, PostData, null, ResponseCMS.class);
+		
+		return response;
 	}
 	
 	
@@ -725,6 +745,15 @@ public class KakaocertServiceImp implements KakaocertService{
 		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
 		
 		return httpget("/SignDirectDebit/Verify/" + receiptID, ClientCode, null,
+				VerifyResult.class);
+	}
+	
+	@Override
+	public VerifyResult verifyCMS(String ClientCode, String receiptID, String signature) throws KakaocertException {
+		if(null == ClientCode || ClientCode.length() == 0 ) throw new KakaocertException(-99999999, "이용기관코드가 입력되지 않았습니다.");
+		if(null == receiptID || receiptID.length() == 0 ) throw new KakaocertException(-99999999, "접수아이디가 입력되지 않았습니다.");
+		
+		return httpget("/SignDirectDebit/Verify/" + receiptID +"/"+signature, ClientCode, null,
 				VerifyResult.class);
 	}
 	
