@@ -13,6 +13,7 @@ public class RequestVerifyAuth implements Serializable{
 	private static final long serialVersionUID = -7183094820383012243L;
 
 	private String CallCenterNum;
+	private String CallCenterName;
 	private int Expires_in;
 	private String PayLoad;
 	private String ReceiverBirthDay;
@@ -41,6 +42,25 @@ public class RequestVerifyAuth implements Serializable{
 	 */
 	public void setCallCenterNum(String callCenterNum) {
 		this.CallCenterNum = callCenterNum;
+	}
+	
+
+	/**
+	 * 고객센터명 확인 
+	 * 
+	 * @return CallCenterName
+	 */
+	public String getCallCenterName() {
+		return CallCenterName;
+	}
+
+	/**
+	 * 고객센터명 설정
+	 * 
+	 * @return CallCenterName
+	 */
+	public void setCallCenterName(String callCenterName) {
+		CallCenterName = callCenterName;
 	}
 	
 	/**

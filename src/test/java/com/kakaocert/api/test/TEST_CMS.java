@@ -32,6 +32,7 @@ public class TEST_CMS {
 			request.setAllowSimpleRegistYN(false);
 			request.setVerifyNameYN(false);
 			request.setCallCenterNum("1600-9999");
+			request.setCallCenterName("콜센터명");
 			request.setExpires_in(60);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19700101");
@@ -63,6 +64,7 @@ public class TEST_CMS {
 			request.setAllowSimpleRegistYN(false);
 			request.setVerifyNameYN(false);
 			request.setCallCenterNum("1600-9999");
+			request.setCallCenterName("콜센터명");
 			request.setExpires_in(60);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19700101");
@@ -94,6 +96,7 @@ public class TEST_CMS {
 			ResultCMS result = kakaocertService.getCMSState("020040000001", "021121711315300001");
 			
 			System.out.println(result.getCallCenterNum());
+			System.out.println(result.getCallCenterName());
 			System.out.println(result.getReceiptID());
 			System.out.println(result.getRegDT());
 			System.out.println(result.getState());

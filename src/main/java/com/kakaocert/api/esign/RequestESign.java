@@ -12,6 +12,7 @@ public class RequestESign implements Serializable{
 	private static final long serialVersionUID = -612033468073051353L;
 	
 	private String CallCenterNum;
+	private String CallCenterName;
 	private int Expires_in;
 	private String PayLoad;
 	private String ReceiverBirthDay;
@@ -43,6 +44,25 @@ public class RequestESign implements Serializable{
 		this.CallCenterNum = callCenterNum;
 	}
 	
+	
+	/**
+	 * 고객센터명 확인 
+	 * 
+	 * @return CallCenterName
+	 */
+	public String getCallCenterName() {
+		return CallCenterName;
+	}
+
+	/**
+	 * 고객센터명 설정
+	 * 
+	 * @return CallCenterName
+	 */
+	public void setCallCenterName(String callCenterName) {
+		CallCenterName = callCenterName;
+	}
+
 	/**
 	 * 인증요청 만료시간(초) 확인
 	 * 

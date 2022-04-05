@@ -33,6 +33,7 @@ public class TEST_VerifyAuth {
 			request.setAllowSimpleRegistYN(true);
 			request.setVerifyNameYN(true);
 			request.setCallCenterNum("1600-9999");
+			request.setCallCenterName("콜센터명");
 			request.setExpires_in(1000);
 			request.setPayLoad(null);
 			request.setReceiverBirthDay("19700101");
@@ -58,6 +59,7 @@ public class TEST_VerifyAuth {
 			ResultVerifyAuth result = kakaocertService.getVerifyAuthState("020040000001", "020090815371100001");
 			
 			System.out.println(result.getCallCenterNum());
+			System.out.println(result.getCallCenterName());
 			System.out.println(result.getReceiptID());
 			System.out.println(result.getRegDT());
 			System.out.println(result.getState());

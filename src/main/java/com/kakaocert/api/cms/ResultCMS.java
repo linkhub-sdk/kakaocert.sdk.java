@@ -6,6 +6,7 @@ public class ResultCMS {
 	private int state;
 	private int expires_in;
 	private String callCenterNum;
+	private String callCenterName;
 	private boolean allowSimpleRegistYN;
 	private boolean verifyNameYN;
 	private String payload;
@@ -45,6 +46,9 @@ public class ResultCMS {
 		return callCenterNum;
 	}
 	
+	public String getCallCenterName() {
+		return callCenterName;
+	}
 	public boolean isAllowSimpleRegistYN() {
 		return allowSimpleRegistYN;
 	}
