@@ -53,6 +53,7 @@ public class KakaocertServiceImp implements KakaocertService{
 	private boolean isIPRestrictOnOff;
 	private boolean useStaticIP;
 	private boolean useGAIP;
+	private boolean useLocalTimeYN;
 	private String _linkID;
 	private String _secretKey;
 	private Gson _gsonParser = new Gson();
@@ -63,6 +64,7 @@ public class KakaocertServiceImp implements KakaocertService{
 		isIPRestrictOnOff = true;
 		useStaticIP = false;
 		useGAIP = false;
+		useLocalTimeYN = true;
 	}
 	
 	public void setIPRestrictOnOff(boolean isIPRestrictOnOff) {
@@ -77,12 +79,19 @@ public class KakaocertServiceImp implements KakaocertService{
 		this.useGAIP = useGAIP;
 	}
 	
+    public void setUseLocalTimeYN(boolean useLocalTimeYN) {
+        this.useLocalTimeYN = useLocalTimeYN;
+    }
+	
 	public boolean isUseStaticIP() {
 		return useStaticIP;
 	}
 	
 	public boolean isUseGAIP() {
 		return useGAIP;
+	}
+	public boolean isUseLocalTimeYN() {
+	    return useLocalTimeYN;
 	}
 	
 	public String getServiceURL() {
@@ -130,7 +139,8 @@ public class KakaocertServiceImp implements KakaocertService{
 			tokenBuilder = TokenBuilder
 					.newInstance(getLinkID(), getSecretKey())
 					.ServiceID(ServiceID)
-					.addScope("member");
+					.addScope("member")
+					.useLocalTimeYN(useLocalTimeYN);
 			
 			if(AuthURL != null) {
 				tokenBuilder.setServiceURL(AuthURL);
